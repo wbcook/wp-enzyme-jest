@@ -1,5 +1,5 @@
 
-import { sortReducer } from './reduce-sortfield';
+import { sortReducer, sortDirections} from './reduce-sortfield';
 
 
 it('First sort click', () => {
@@ -59,9 +59,15 @@ describe('sort direction', () => {
     expect(state2.sortDirection).toBe('asc');
     expect(state2.sortDirection).toBe(state1.sortDirection);
 
-    const state3 = sortReducer(state2, sortField);
-    const state4 = sortReducer(state3, 'firstName');
+  });
 
-  })
+  it('should flip from "desc" to "asc" if the sortField changes', () => {
+    const state2 = sortReducer(state1, state1.sortField);
+    expect(state2.sortDirection).toBe(sortDirections.desc);
+
+    const nextSortField = 'firstName'
+    const state3 = sortReducer(state2, nextSortField);
+    expect(state3.sortDirection).toBe(sortDirections.asc);
+  });
 
 })

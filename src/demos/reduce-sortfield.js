@@ -4,10 +4,15 @@ const initialState = {
   sortDirection: 'asc'
 };
 
+export const sortDirections = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
 export function sortReducer (state={}, sortField='') {
-  let sortDirection = 'asc';
-  if (state.sortField === sortField) {
-    sortDirection = 'desc';
+  let sortDirection = sortDirections.asc;
+  if (state.sortField === sortField && state.sortDirection === sortDirections.asc) {
+    sortDirection = sortDirections.desc;
   }
   return {...state, sortField, sortDirection};
 }
