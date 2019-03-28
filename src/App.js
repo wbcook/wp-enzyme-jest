@@ -32,8 +32,8 @@ class App extends Component {
         <Router>
           <div className="container">
             <header>
-              <h1>Discover Fake Banking Services</h1>
-              <small>Serving Chicagoland since Tuesday morning</small>
+              <h1>Fake Banking Services</h1>
+              <small>Serving the DC Metro area since Thursday morning</small>
               <hr />
             </header>
             <nav>
